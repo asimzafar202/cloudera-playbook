@@ -1,9 +1,3 @@
-[scm_server]
-<host>
-
-[db_server]
-<host>
-
 [krb5_server]
 <host>
 
