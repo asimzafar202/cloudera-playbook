@@ -1,7 +1,5 @@
 ---
 
-- include_vars: ../../../group_vars/cdh_servers.yml
-- include_vars: ../../../group_vars/db_server.yml
 
 # Check whether cluster already exists
 # https://cloudera.github.io/cm_api/apidocs/v13/path__clusters.html
@@ -16,14 +14,8 @@
     return_content: yes
   register: clusters_resp
 
-- set_fact:
-    cluster_exists: "{{ 'True' if clusters_resp.status == 200 else 'False' }}"
 
-- debug:
-    msg: "Cluster '{{ cluster_display_name }}' exists - {{ cluster_exists }}"
-    verbosity: 1
-
-- name: Discover product versions from parcel manifests
+- name: from parcel manifests discover product versions
   uri:
     url: "{{ item }}/manifest.json"
     status_code: 200

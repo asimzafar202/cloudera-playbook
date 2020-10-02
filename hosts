@@ -1,11 +1,5 @@
-[scm_server]
-<host>
-
-[db_server]
-<host>
-
-[krb5_server]
-<host>
+#[krb5_server]
+#<host>
 
 [utility_servers:children]
 scm_server
